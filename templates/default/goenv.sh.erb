@@ -1,0 +1,4 @@
+export GOENV_ROOT=<%= @goenv_root %>
+export PATH=$GOENV_ROOT/bin:<%= @go_build_bin_path %>:$PATH
+
+eval "$(goenv init -)"
