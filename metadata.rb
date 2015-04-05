@@ -1,4 +1,4 @@
-name             'goenv-cookbook'
+name             'goenv'
 maintainer       'YOUR_NAME'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'

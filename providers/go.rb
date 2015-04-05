@@ -53,7 +53,7 @@ action :install do
     new_resource.updated_by_last_action(true)
   end
 
-  if new_resource.global && !goenv_global_version?(new_resource.name)
+  if new_resource.global #&& !goenv_global_version?(new_resource.name)
     Chef::Log.info "Setting #{resource_descriptor} as the goenv global version"
     out = goenv_command("global #{new_resource.go_version}")
     unless out.exitstatus == 0
