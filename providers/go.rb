@@ -29,13 +29,11 @@ action :install do
     Chef::Log.info "#{resource_descriptor} is building, this may take a while..."
 
     start_time = Time.now
-    #out = new_resource.patch ?
-    #  goenv_command("install --patch #{new_resource.go_version}", patch: new_resource.patch) :
-    #  goenv_command("install #{new_resource.go_version}")
-    #
-    #unless out.exitstatus == 0
-    #  raise Chef::Exceptions::ShellCommandFailed, "\n" + out.format_for_exception
-    #end
+    out = goenv_command("install #{new_resource.go_version}")
+
+    unless out.exitstatus == 0
+      raise Chef::Exceptions::ShellCommandFailed, "\n" + out.format_for_exception
+    end
 
     Chef::Log.debug("#{resource_descriptor} build time was #{(Time.now - start_time)/60.0} minutes.")
 
